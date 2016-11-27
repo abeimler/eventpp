@@ -62,18 +62,18 @@ add_definitions(
 # CMake configuration
 #
 
-set(PROJECT_CMAKE_MODULES cmake/modules)
-set(PROJECT_BUILD_DIR build)
-set(PROJECT_DEPS_DIR deps)
-set(PROJECT_SRC_DIR src)
-set(PROJECT_TEST_DIR test)
+set(PROJECT_CMAKE_MODULES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+set(PROJECT_BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
+set(PROJECT_DEPS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/deps)
+set(PROJECT_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set(PROJECT_TEST_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test)
 
 set(PROJECT_RUNTIME_OUTPUT_DIRECTORY bin)
 
 set(
     CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
-    ${CMAKE_SOURCE_DIR}/${PROJECT_CMAKE_MODULES}
+    ${PROJECT_CMAKE_MODULES}
 )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_RUNTIME_OUTPUT_DIRECTORY})
@@ -89,7 +89,7 @@ include(CTest)
 #
 
 find_package(Threads REQUIRED)
-find_package(GoogleTest REQUIRED)
+find_package(GoogleTest)
 
 #
 # Referenced directories and targets
